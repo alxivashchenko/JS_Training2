@@ -21,7 +21,8 @@ let a = 2;
 console.log(a);
 a = 'Stringa';
 console.log(a);
-
+var b = "555";
+console.log(555 == b);
 
 
 
