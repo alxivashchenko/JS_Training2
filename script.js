@@ -1,30 +1,46 @@
-'use strict';
+let money = +prompt("Ваш бюджет на месяц?", ''),
+    time = prompt("Введите дату в формате YYYY-MM-DD", '');
+console.log(money);
+console.log(time);
 
-var first = 1;
-
-let second = 2;
-// console.log('second'/8);
-// console.log(4/0);
-let person = {
-    name : "John",
-    age : 25,
-    isMarried : false
+let appData = {
+    budget: money,
+    expenses: {},
+    optionalExpenses: {},
+    income: [],
+    timeData: time,
+    savings: false
 };
-console.log(person.name);
-console.log(person["name"]);
-let answer = confirm("Are you here?");
-console.log(answer);
-let answer2 = prompt("Are you 18?", "Yes");
-console.log(answer2);
-console.log(typeof(answer2));
+let i = 0;
+do {
+    let a = prompt("Введите обяз статью расходов ", ''),
+        b = prompt("Во сколько это обойдется?", '');
+        console.log(a);
+        console.log(b);
 
+    if ((typeof (a)) === 'string' && (typeof (a)) != null && (typeof (b)) != null &&
+        a != '' && b != '' && a.length < 50) {
+        console.log("done");
+        appData.expenses[a] = b;
+    } else {
 
+    }
+    i++;
+} while (i < 2);
 
-let budjet = prompt("Ваш бюджет на месяц?", "100");
-console.log(budjet);
-let dataInput = prompt("Введите дату в формате YYYY-MM-DD", '');
-console.log(dataInput);
+appData.moneyPerDay = appData.budget / 30;
+appData.moneyPerMonth = appData.moneyPerDay * 30;
+console.log(appData.moneyPerMonth);
+alert("Ежедневный бюджет: " + appData.moneyPerDay);
 
+if (appData.moneyPerDay < 100) {
+    console.log("Минимальный уровень достатка");
+} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
+    console.log("Средний уровень достатка");
+} else if (appData.moneyPerDay > 2000) {
+    console.log("Высокий уровень достатка");
+} else {
+    console.log("Произошла ошибка");
+}
 
-
-
+console.log(appData);
